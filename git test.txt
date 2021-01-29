@@ -1,1 +1,2 @@
 git JS_ex test.txt
+git JS_ex test.txt
