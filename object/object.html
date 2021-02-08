@@ -2,35 +2,67 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Object</title>
     <script defer>
+      //객체는 이름과 값으로 구성된 '속성(property)'을 가진 자바스크립트의 기본 데이터 타입이다.
+      //기존의 배열도 객체다.
+
       const abc = function () {};
+
       console.log(typeof abc);
+
+      //1. 객체는 키와 값을 한 쌍으로 하는 속성이다.
+      //{키 : 값}
 
       const product = {
         title: "website",
         type: "web project",
-        regist: "2021 - 02 - 05",
+        regist: "2021-02-05",
         client: "samsung",
       };
 
+      //2. 객체 접근
       console.log(product);
       console.log(product.title);
       console.log(product["title"]);
 
+      //3. 속성과 메서드
+      //객체의 속성 중 함수 자료형인 속성을 메서드(method)라 한다.
+
+      function sum(a, b) {
+        return a + b;
+      }
+
+      console.log(sum(3, 5));
+
       const person = {
-        name: "게콩",
+        name: "개똥이",
         go: function (city) {
           return city;
         },
       };
 
-      console.log(person.name + "는 " + person.go("인천") + "으로 갑니다.");
-      // 탬플릿 문자열
-      console.log(`${person.name} 은 ${person.go("인천")} 으로 갑니다.`);
+      console.log(person.name + "는" + person.go("인천") + "으로 갑니다.");
 
-      // parameter 정리
+      //템플릿 문자열
+      console.log(`${person.name}는 ${person.go("인천")}으로 갑니다.`);
+
+      //5. 객체 속성 추가하기
+      const person3 = {};
+      person3.name = "marshall";
+      person3.harby = "playing guitar";
+      person3.job = "programmer";
+
+      console.log(person3);
+      console.log(JSON.stringify(person3, 2));
+
+      //6. 객체 속성 제거하기
+      delete person3.job;
+      console.log(person3);
+
+      //파라미터 정리
       function controls(a, b) {
         console.log(a);
         console.log(b);
@@ -44,13 +76,11 @@
       };
 
       function controls1(data) {
-        //data로 받아서 param을 끌고 들어온다.
         console.log(data.a);
         console.log(data.b);
       }
 
       controls1(param);
-      // param을 선언
     </script>
   </head>
   <body></body>
