@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom</title>
+    <script defer>
+      window.addEventListener("DOMContentLoaded", (event) => {
+        // 화살표 함수
+        //1. 요소 선택  : querySelector();
+        const header = document.querySelector("h1");
+        console.log(header);
+
+        header.textContent = "header"; //컨텐츠 변경
+        header.style.color = "#ddd";
+
+        //2. 반복 요소 선택 : querySelectorAll();
+        const para = document.querySelectorAll("p");
+        console.log(para);
+        // for (let i = 0; i < para.length; i++) {
+        //   para[i].textContent = "header"; //컨텐츠 변경
+        //   para[i].style.color = "#ddd";
+        // }
+        // para.forEach(function (paraE1) {
+        //   para.textContent = "header"; //컨텐츠 변경
+        //   para.style.color = "#ddd";
+        // });
+
+        let arr = [1, 2, 3, 4];
+        arr.forEach(function (item, index) {
+          console.log(item, index);
+        });
+
+        //3. 요소 속성값 지정 : setAttribute();
+        const imgs = document.querySelectorAll(".img");
+        imgs.forEach(function (img, index) {
+          console.log(img, index);
+          const src = `post-${index + 1}.jpg`;
+          console.log(src);
+          img.setAttribute("src", src);
+        });
+
+        //4. 요소 생성 : createElement();
+        //   요소 추가 : appendChild();
+        const hTag = document.createElement("h3");
+        hTag.textContent = "헤더3 생성";
+        hTag.style.color = "red";
+        hTag.style.backgroundColor = "green";
+        // 요소 생성
+
+        document.body.appendChild(hTag);
+
+        //5. 요소 제거 : removeChild();
+        setTimeout(function () {
+          const removeTag = document.querySelector("#remove");
+          // document.body.removeChild(removeTag);
+          removeTag.parentNode.removeChild(removeTag);
+          // parantNode : jquery 에서는 이러한 노드 처리를 자동으로 해준다.
+        }, 3000);
+      });
+
+      // = window.addEventListener("DOMContentLoaded", function (event) {});
+      // document.getElementById('idname') = id 는 유일
+      // document.getElementsByClassName('classname') = class 와 tag는 다수 선택 가능
+      // document.getElementsByTagName('tagname')
+    </script>
+  </head>
+  <body>
+    <h1></h1>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <div class="img-box">
+      <img class="img" />
+      <img class="img" />
+      <img class="img" />
+    </div>
+    <h2 id="remove">제거할 태그</h2>
+  </body>
+</html>
